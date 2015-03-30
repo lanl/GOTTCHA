@@ -33,9 +33,9 @@
       <section id="main_content" class="inner">
         
 <h3>
-<a id="genomic-origin-through-taxonomic-challenge-gottcha" class="anchor" href="#genomic-origin-through-taxonomic-challenge-gottcha" aria-hidden="true"><span class="octicon octicon-link"></span></a>Genomic Origin Through Taxonomic CHAllenge (GOTTCHA)
+<a id="genomic-origin-through-taxonomic-challenge-gottcha" class="anchor" href="#genomic-origin-through-taxonomic-challenge-gottcha" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is GOTTCHA?
 </h3>
-<p>GOTTCHA is an application of a novel, gene-independent and signature-based metagenomic
+<p>GOTTCHA (<u>G</u>enomic <u>O</u>rigin <u>T</u>hrough <u>T</u>axonomic <u>CHA</u>llenge) is an application of a novel, gene-independent and signature-based metagenomic
 taxonomic profiling method with significantly smaller false discovery rates (FDR) that is 
 laptop deployable. Our algorithm was tested and validated on twenty synthetic and mock 
 datasets ranging in community composition and complexity, was applied successfully to data
@@ -45,7 +45,21 @@ superior performance compared with other available tools.</p>
 <hr>
 
 <h3>
-<a id="system-requirement" class="anchor" href="#system-requirement" aria-hidden="true"><span class="octicon octicon-link"></span></a>SYSTEM REQUIREMENT</h3>
+<a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's News in version 1.0?
+</h3>
+
+<blockquote>
+<ol>
+<li>The number of classified reads reports on the ouput in READ_COUNT column.</li>
+<li>The number of split-trimmed reads that hit to plasmids reports in HIT_COUNT_PLASMID column.</li>
+<li>GOTTCHA can now remove the plasmid hits using "--noPlasmidHit".</li>
+</ol>
+</blockquote>
+
+<hr>
+
+<h3>
+<a id="system-requirement" class="anchor" href="#system-requirement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can I run GOTTCHA?</h3>
 
 <p>Linux (2.6 kernel or later) or Mac (OSX 10.6 Snow Leopard or later) operating system
 with minimal 8 GB of RAM is recommended. Perl v5.8 or above is required. The C/C++
@@ -59,10 +73,10 @@ Ubuntu 10.04 w/ Perl v5.10.1) and Macbook Pro laptops (MAC OSX 10.8 w/ XCODE v5.
 
 <hr>
 
-<h2>
-<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>QUICK START</h2>
+<h3>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>How do I run GOTTCHA?</h3>
 
-<p>This is an example of profiling a "test.fastq" file using GOTTCHA with a species-level
+<p>This is an quick example of profiling a "test.fastq" file using GOTTCHA with a species-level
 pre-computed bacterial database. The testing FASTQ file comes along with the GOTTCHA package
 in the "test" directory. More details are stated in the INSTRUCTION section.</p>
 
@@ -373,9 +387,6 @@ learning techniques, and Shihai Feng for the generation of synthetic datasets.</
 <p>This project is funded by U.S. Defense Threat Reduction Agency [R-00059-12-0 and R-00332-13-0 to P.S.G.C.].</p>
 
 <hr>
-
-
-
 
       </section>
     </div>

@@ -19,7 +19,7 @@
           <a id="forkme_banner" href="https://github.com/LANL-Bioinformatics/GOTTCHA">View on GitHub</a>
 
           <h1 id="project_title">GOTTCHA</h1>
-          <h2 id="project_tagline">Accurate read-based metagenome characterization using a hierarchical suite of unique signatures</h2>
+          <h4 id="project_tagline">Accurate read-based metagenome characterization using a hierarchical suite of unique signatures</h4>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/LANL-Bioinformatics/GOTTCHA/zipball/master">Download this project as a .zip file</a>
@@ -48,13 +48,9 @@ superior performance compared with other available tools.</p>
 <a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's News in version 1.0?
 </h3>
 
-<blockquote>
-<ol>
 <li>The number of classified reads reports on the ouput in READ_COUNT column.</li>
 <li>The number of split-trimmed reads that hit to plasmids reports in HIT_COUNT_PLASMID column.</li>
 <li>GOTTCHA can now remove the plasmid hits using "--noPlasmidHit".</li>
-</ol>
-</blockquote>
 
 <hr>
 
@@ -126,157 +122,14 @@ $ tar -zxvf GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz
 
 <hr>
 
-<h2>
-<a id="detail-instructions" class="anchor" href="#detail-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>DETAIL INSTRUCTIONS</h2>
+<h3>
+<a id="detail-instructions" class="anchor" href="#detail-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Detail about GOTTCHA?</h2>
 
 <p>The detail of steps in the above section will be descrbed in this section. Note that all 
 instructions in this document use pre-computed databases downloaded from our SFTP site.</p>
 
 <p>If you are looking for instructions to build a CUSTOM database and/or running GOTTCHA
 step-by-step, please read README_FULL.md.</p>
-
-<hr>
-
-<h3>
-<a id="obtaining-gottcha" class="anchor" href="#obtaining-gottcha" aria-hidden="true"><span class="octicon octicon-link"></span></a>Obtaining GOTTCHA</h3>
-
-<p>The source codes can be downloading from <a href="https://bitbucket.org/poeli/gottcha">here</a>.
-The pre-computed databases need to be downloaded separately from our SFTP server.
-Please see below in the [Obtaining Pre-computed Databases] section.</p>
-
-<p>You can use "git" to obtain the package:</p>
-
-<pre><code>    $ git clone https://bitbucket.org/poeli/gottcha
-</code></pre>
-
-<p>or download the compressed archive in
- <a href="https://bitbucket.org/poeli/gottcha/get/master.zip">zip</a>,
- <a href="https://bitbucket.org/poeli/gottcha/get/master.tar.gz">gz</a> or 
- <a href="https://bitbucket.org/poeli/gottcha/get/master.tar.bz2">bz2</a>.</p>
-
-<hr>
-
-<h3>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
-
-<p>The GOTTCHA profiling and database-generating scripts are primarily Perl-based, and require at
-least Perl v5.8 with dependencies installed properly (listed in README_FULL.md).
-The splitrim tool is written in <a href="http://www.dlang.org">D</a> that requires an appropriate D 
-compiler to complie it. GOTTCHA utilizes <a href="https://github.com/lh3/bwa">BWA</a> with the BWA-MEM algorithm
-for read mapping. You can either keep "dmd" and "bwa" in your system path or simply 
-run the installation script - INSTALL.sh. This script will check and try to install missing 
-tools and dependencies:</p>
-
-<pre><code>    $ ./INSTALL.sh
-</code></pre>
-
-<p>After running INSTALL.sh successfully, the binaries and related scripts will be stored
-in the ./bin directory.</p>
-
-<hr>
-
-<h3>
-<a id="obtaining-pre-computed-databases" class="anchor" href="#obtaining-pre-computed-databases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Obtaining Pre-computed Databases</h3>
-
-<p>Databases of unique genome segments at multiple taxonomic levels (e.g. family, species, 
-genus, strain-level, etc.) are used for taxonomic classification of reads. Variants of 
-these databases, in which all human 24-mers were removed were also generated and used in 
-this study. These 24-mers were derived from the GRCh37.p10 (Genome Reference Consortium),
-HuRef (J. Craig Venter Institute), and CHM1_1.0 (Washington U. School of Medicine) 
-assemblies and include unplaced scaffolds. For example, 
-GOTTCHA_BACTERIA_c3514_k24_u24_xHUMAN3x.species.tar.gz is a GOTTCHA bacterial 
-species-level signature database that was produced by eliminating shared 24-mer (k24) sequences from
-3514 bacterial replicons (c3514; includes both chromosomes and plasmids) and 3 human genomes (xHuman3X), 
-while retaining a minimum of 24bp of unique fragments (u24).</p>
-
-<p>The compressed database archives are available for users to download from our SFTP 
-server with the credential below:</p>
-
-<blockquote>
-<p>SFTP server: img-gp.lanl.gov<br>
-Port: 33001<br>
-username: gottcha<br>
-password: 9001gottcha   </p>
-</blockquote>
-
-<p>GOTTCHA requires a taxanomic lookup table (GOTTCHA_lookup.tar.gz) and a pre-computed
-database (e.g: GOTTCHA_BACTERIA_c3514_k24_u24_xHUMAN3x.species.tar.gz) to classify reads.
-These signature databases could be huge. We highly recommend that users also download the
-corresponding *.md5 file for verification.</p>
-
-<p>You can use the 'sftp' command to download both archives, one at a time:</p>
-
-<pre><code>    $ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_lookup.tar.gz ./
-    $ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_BACTERIA_c3514_k24_u24_xHUMAN3x.species.tar.gz ./
-</code></pre>
-
-<p>Then use 'tar' to unpack and decompress both archives:</p>
-
-<pre><code>    $ tar -zxvf GOTTCHA_lookup.tar.gz
-    $ tar -zxvf GOTTCHA_BACTERIA_c3514_k24_u24_xHUMAN3x.species.tar.gz
-</code></pre>
-
-<p>Files will be expanded to ./database directory by default.</p>
-
-<p>Here is a list of the available pre-computed databases. Note that these databases are
-also available in FASTA format at gottcha/FASTA/:</p>
-
-<ul>
-<li>GOTTCHA_BACTERIA_c3514_k24_u24.class.tar.gz (4.6GB)</li>
-<li>GOTTCHA_BACTERIA_c3514_k24_u24.family.tar.gz (4.6GB)</li>
-<li>GOTTCHA_BACTERIA_c3514_k24_u24.genus.tar.gz (4.5GB)</li>
-<li>GOTTCHA_BACTERIA_c3514_k24_u24.order.tar.gz (4.6GB)</li>
-<li>GOTTCHA_BACTERIA_c3514_k24_u24.phylum.tar.gz (4.6GB)</li>
-<li>GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz (4.3GB)</li>
-<li>GOTTCHA_BACTERIA_c3514_k24_u24.strain.tar.gz (3.9GB)</li>
-<li>GOTTCHA_BACTERIA_c3514_k24_u24_xHUMAN3x.genus.tar.gz (4.5GB)</li>
-<li>GOTTCHA_BACTERIA_c3514_k24_u24_xHUMAN3x.species.tar.gz (4.3GB)</li>
-<li>GOTTCHA_BACTERIA_c3514_k24_u24_xHUMAN3x.strain.tar.gz (3.8GB)</li>
-<li>GOTTCHA_VIRUSES_c3498_k85_u24.genus.tar.gz (71MB)</li>
-<li>GOTTCHA_VIRUSES_c3498_k85_u24.species.tar.gz (68MB)</li>
-<li>GOTTCHA_VIRUSES_c3498_k85_u24.strain.tar.gz (68MB)</li>
-<li>GOTTCHA_VIRUSES_c3498_k85_u24_xHUMAN3x.genus.tar.gz (71MB)</li>
-<li>GOTTCHA_VIRUSES_c3498_k85_u24_xHUMAN3x.species.tar.gz (68MB)</li>
-<li>GOTTCHA_VIRUSES_c3498_k85_u24_xHUMAN3x.strain.tar.gz (68MB)</li>
-</ul>
-
-<p>Note: We have noticed that our SFTP server doesn't work for some IPs.
-If you have any difficulty obtaining the databases, please contact Po-E Li <a href="mailto:po-e@lanl.gov">po-e@lanl.gov</a>.</p>
-
-<hr>
-
-<h3>
-<a id="running-gottcha" class="anchor" href="#running-gottcha" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running GOTTCHA</h3>
-
-<p>The procedure includes 3 major steps: (1) split-trimming the input data, (2) mapping reads 
-to a GOTTCHA database using BWA, and (3) profiling/filtering the results. These steps have
-been wrapped into a sigle script called 'gottcha.pl'. User will need to provide a FASTQ file
-as input and specify the location and name of the database.</p>
-
-<p>Here is the general usage to run GOTTCHA:</p>
-
-<blockquote>
-<p>$ bin/gottcha.pl -i &lt;FASTQ&gt; -d &lt;PATH/DATABASE_PREFIX&gt;</p>
-</blockquote>
-
-<p>We provided a testing FASTQ file and example output in ./test. The following command
-is an example that runs "test.fastq" through GOTTCHA using a species-level database with
-8 threads:</p>
-
-<pre><code>    $ bin/gottcha.pl             \
-         --threads 8             \
-         --mode all              \
-         --input test/test.fastq \
-         --database database/GOTTCHA_BACTERIA_c3514_k24_u24_xHUMAN3x.species
-</code></pre>
-
-<p>In this case, we specify the output mode to "all" using "--mode all" option that
-gives us two output files and all intermediate ouptuts stored in "test_temp"
-directory. Both outputs are plain text files in tab-separated values format:
-a summary table "test.gottcha.tsv" and a full information table 
-"test.gottcha_full.tsv".</p>
-
-<hr>
 
 <h3>
 <a id="interpreting-results" class="anchor" href="#interpreting-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interpreting Results</h3>
@@ -340,14 +193,6 @@ relative abundance of each organism or taxonomic name in the sample.</p>
 </tbody>
 </table>
 
-<p>There are two report modes available. Other than a summary table, "full" report 
-mode will report a table with more detail information from unfiltered results. 
-The explanation of each column in the full report can be found in README_REPORT.md
-The "all" report mode will keep all output files that were generated by each 
-profiling step.</p>
-
-<hr>
-
 <h3>
 <a id="visulizing-results-using-krona" class="anchor" href="#visulizing-results-using-krona" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visulizing Results using Krona</h3>
 
@@ -363,28 +208,21 @@ You will find .lineage.tsv file when you run gottcha.pl in "all" output mode.</p
 
 <hr>
 
-<h2>
-<a id="citation" class="anchor" href="#citation" aria-hidden="true"><span class="octicon octicon-link"></span></a>CITATION</h2>
+<h3>
+<a id="citation" class="anchor" href="#citation" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to cite GOTTCHA?</h3>
 
 <p>Tracey Allen K. Freitas, Po-E Li, Matthew B. Scholz and Patrick S. G. Chain (2015) <strong>Accurate read-based metagenome characterization using a hierarchical suite of unique signatures,</strong> Nucleic Acids Research (DOI: 10.1093/nar/gkv180)</p>
 
 <hr>
 
-<h2>
-<a id="authors" class="anchor" href="#authors" aria-hidden="true"><span class="octicon octicon-link"></span></a>AUTHORS</h2>
+<h3>
+<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discussion / Bug Report</h3>
 
-<p>Tracey Allen K. Freitas, Po-E Li, Matthew B. Scholz, Patrick S. G. Chain
-Bioscience Division, Los Alamos National Laboratory, Los Alamos, NM 87545</p>
-
-<hr>
-
-<h2>
-<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span class="octicon octicon-link"></span></a>ACKNOWLEDGEMENTS</h2>
-
-<p>We would like to thank Jason Gans for critical discussions on classification and machine 
-learning techniques, and Shihai Feng for the generation of synthetic datasets.</p>
-
-<p>This project is funded by U.S. Defense Threat Reduction Agency [R-00059-12-0 and R-00332-13-0 to P.S.G.C.].</p>
+<p>We have created a mailing list for GOTTCHA users. If you would like to recieve notifications about the updates and join the discussion, please join the mailing list by becoming the member of GOTTCHA-users groups.</p>
+<p><a href="https://groups.google.com/d/forum/gottcha-users">GOTTCHA user's google group</a></p>
+<p>Despite all these efforts, there are potential bugs and issues. Please help us to make it better by reporting them to GitHub issue tracker.</p>
+<p><a href="https://github.com/LANL-Bioinformatics/GOTTCHA/issues">GOTTCHA issue tracker</a></p>
+<p>Any other questions? You are welcome to contact Po-E (Paul) Li via po-e[at]lanl.gov.</p>
 
 <hr>
 
@@ -403,3 +241,4 @@ learning techniques, and Shihai Feng for the generation of synthetic datasets.</
 
   </body>
 </html>
+

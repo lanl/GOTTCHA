@@ -30,7 +30,7 @@
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+<section id="main_content" class="inner">
         
 <h3>
 <a id="genomic-origin-through-taxonomic-challenge-gottcha" class="anchor" href="#genomic-origin-through-taxonomic-challenge-gottcha" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is GOTTCHA
@@ -52,6 +52,13 @@ superior performance compared with other available tools.</p>
 <li>The number of classified reads reports on the ouput in READ_COUNT column.</li>
 <li>The number of split-trimmed reads that hit to plasmids reports in HIT_COUNT_PLASMID column.</li>
 <li>GOTTCHA can now remove the plasmid hits using "--noPlasmidHit".</li>
+<div style="padding:0.8em; background-color: white;">
+Note:<br>
+The plasmid relative results and the option need the new parsed database to work properly. For users who downloaded the databases before 30th March 2015, 
+we encourage users to download the new parsed database (*.parsedGOTTCHA.dmp) to replace the old one. GOTTCHA v1.0 still supports old databases but 
+plasmid relative results will show zero due to absence of the plasmid information.
+</div>
+
 </p>
 
 <hr>
@@ -60,7 +67,7 @@ superior performance compared with other available tools.</p>
 <a id="system-requirement" class="anchor" href="#system-requirement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can my System Run GOTTCHA</h3>
 
 <p>Linux (2.6 kernel or later) or Mac (OSX 10.6 Snow Leopard or later) operating system
-with minimal 8 GB of RAM is recommended. Perl v5.8 or above is required. The C/C++
+with a minimum of 8 GB of RAM is recommended. Perl v5.8 or above is required. The C/C++
 compiling enviroment might be required for installing dependencies. Systems may vary.
 Please assure that your system has the essential software building packages (e.g. build-essential
 for Ubuntu, XCODE for Mac...etc) installed properly before running the installing 
@@ -107,16 +114,14 @@ in the "test" directory. More details are stated in the INSTRUCTION section.</p>
 	<p>Installing GOTTCHA:</p>
 
 	<pre><code>$ cd gottcha
-$ ./INSTALL.sh
-	</code></pre>
+$ ./INSTALL.sh</code></pre>
 	</li>
 	<li>
 	<p>Downloading lookup table and species-level database from our SFTP server.
 	Use '9001gottcha' as the password when the request prompts:</p>
 
 	<pre><code>$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_lookup.tar.gz ./
-$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz ./
-	</code></pre>
+$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz ./</code></pre>
 
 	<p>If you have any difficulty obtaining the databases, please contact us.</p>
 	</li>
@@ -124,8 +129,7 @@ $ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_BACTERIA_c3514_k2
 	<p>Unpacking and decompressing archives:</p>
 
 	<pre><code>$ tar -zxvf GOTTCHA_lookup.tar.gz
-$ tar -zxvf GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz
-	</code></pre>
+$ tar -zxvf GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz</code></pre>
 	</li>
 	<li>
 	<p>Running gottcha.pl: </p>
@@ -134,8 +138,7 @@ $ tar -zxvf GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz
       --threads 8             \
       --outdir ./             \
       --input test/test.fastq \
-      --database database/GOTTCHA_BACTERIA_c3514_k24_u24.species
-	</code></pre>
+      --database database/GOTTCHA_BACTERIA_c3514_k24_u24.species</code></pre>
 	</li>
 	<li><p>Enjoying the result at './test.gottcha.tsv'.</p></li>
 </ol>
@@ -233,8 +236,10 @@ You will find .lineage.tsv file when you run gottcha.pl in "all" output mode.</p
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">GOTTCHA maintained by <a href="https://github.com/LANL-Bioinformatics">LANL-Bioinformatics</a></p>
+	    <p class="copyright">GOTTCHA maintained by Bioscience Div, <a href="http://www.lanl.gov/">Los Alamos National Laboratory</a></p>
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+		<p>This project is funded by U.S. Defense Threat Reduction Agency [R-00059-12-0].</p>
+		<div style="float: right;"><img src="los-alamos-lab-logo-white.png"></div>
       </footer>
     </div>
 

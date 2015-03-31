@@ -107,7 +107,7 @@ in the "test" directory. More details are stated in the INSTRUCTION section.</p>
 	<p>Installing GOTTCHA:</p>
 
 	<pre><code>$ cd gottcha
-	$ ./INSTALL.sh
+$ ./INSTALL.sh
 	</code></pre>
 	</li>
 	<li>
@@ -115,7 +115,7 @@ in the "test" directory. More details are stated in the INSTRUCTION section.</p>
 	Use '9001gottcha' as the password when the request prompts:</p>
 
 	<pre><code>$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_lookup.tar.gz ./
-	$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz ./
+$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz ./
 	</code></pre>
 
 	<p>If you have any difficulty obtaining the databases, please contact Po-E Li <a href="mailto:po-e@lanl.gov">po-e@lanl.gov</a>.</p>
@@ -124,14 +124,13 @@ in the "test" directory. More details are stated in the INSTRUCTION section.</p>
 	<p>Unpacking and decompressing archives:</p>
 
 	<pre><code>$ tar -zxvf GOTTCHA_lookup.tar.gz
-	$ tar -zxvf GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz
+$ tar -zxvf GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz
 	</code></pre>
 	</li>
 	<li>
 	<p>Running gottcha.pl: </p>
 
-	<pre><code>
-$ bin/gottcha.pl              \
+	<pre><code>$ bin/gottcha.pl              \
       --threads 8             \
       --outdir ./             \
       --input test/test.fastq \

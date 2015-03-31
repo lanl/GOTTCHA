@@ -45,17 +45,19 @@ superior performance compared with other available tools.</p>
 <hr>
 
 <h3>
-<a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's News in version 1.0?
+<a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's New?
 </h3>
 
+<p>Some major changes has been made in our v1.0 release:
 <li>The number of classified reads reports on the ouput in READ_COUNT column.</li>
 <li>The number of split-trimmed reads that hit to plasmids reports in HIT_COUNT_PLASMID column.</li>
 <li>GOTTCHA can now remove the plasmid hits using "--noPlasmidHit".</li>
+</p>
 
 <hr>
 
 <h3>
-<a id="system-requirement" class="anchor" href="#system-requirement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can I run GOTTCHA?</h3>
+<a id="system-requirement" class="anchor" href="#system-requirement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can my System Run GOTTCHA?</h3>
 
 <p>Linux (2.6 kernel or later) or Mac (OSX 10.6 Snow Leopard or later) operating system
 with minimal 8 GB of RAM is recommended. Perl v5.8 or above is required. The C/C++
@@ -70,69 +72,78 @@ Ubuntu 10.04 w/ Perl v5.10.1) and Macbook Pro laptops (MAC OSX 10.8 w/ XCODE v5.
 <hr>
 
 <h3>
-<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>How do I run GOTTCHA?</h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to Install GOTTCHA?</h3>
+
+<p>The installation guide and the quick tutorial can be found in the the <a href="https://github.com/LANL-Bioinformatics/GOTTCHA">Github page</a>. More detail of each step is descripted in <a href="https://github.com/LANL-Bioinformatics/GOTTCHA/tree/master#detail-instructions">this section</a>.</p>
+
+<hr>
+
+<h3>
+<a id="discussion" class="anchor" href="#discussion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discussion / Bug Report</h3>
+
+<p>We have created a mailing list for GOTTCHA users. If you would like to recieve notifications about the updates and join the discussion, please join the mailing list by becoming the member of GOTTCHA-users groups.</p>
+<p><a href="https://groups.google.com/d/forum/gottcha-users">GOTTCHA user's google group</a></p>
+<p>Despite all these efforts, there are potential bugs and issues. Please help us to make it better by reporting them to GitHub issue tracker.</p>
+<p><a href="https://github.com/LANL-Bioinformatics/GOTTCHA/issues">GOTTCHA issue tracker</a></p>
+<p>Any other questions? You are welcome to contact Po-E (Paul) Li via po-e[at]lanl.gov.</p>
+
+<hr>
+
+<h3>
+	<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>I Can't Wait! How do I run GOTTCHA?</h3>
 
 <p>This is an quick example of profiling a "test.fastq" file using GOTTCHA with a species-level
 pre-computed bacterial database. The testing FASTQ file comes along with the GOTTCHA package
 in the "test" directory. More details are stated in the INSTRUCTION section.</p>
 
 <ol>
-<li>
-<p>Obtaining GOTTCHA package:</p>
+	<li>
+	<p>Obtaining GOTTCHA package:</p>
 
-<pre><code>$ git clone https://github.com/LANL-Bioinformatics/GOTTCHA.git gottcha
-</code></pre>
-</li>
-<li>
-<p>Installing GOTTCHA:</p>
+	<pre><code>$ git clone https://github.com/LANL-Bioinformatics/GOTTCHA.git gottcha
+	</code></pre>
+	</li>
+	<li>
+	<p>Installing GOTTCHA:</p>
 
-<pre><code>$ cd gottcha
-$ ./INSTALL.sh
-</code></pre>
-</li>
-<li>
-<p>Downloading lookup table and species-level database from our SFTP server.
-Use '9001gottcha' as the password when the request prompts:</p>
+	<pre><code>$ cd gottcha
+	$ ./INSTALL.sh
+	</code></pre>
+	</li>
+	<li>
+	<p>Downloading lookup table and species-level database from our SFTP server.
+	Use '9001gottcha' as the password when the request prompts:</p>
 
-<pre><code>$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_lookup.tar.gz ./
-$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz ./
-</code></pre>
+	<pre><code>$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_lookup.tar.gz ./
+	$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz ./
+	</code></pre>
 
-<p>If you have any difficulty obtaining the databases, please contact Po-E Li <a href="mailto:po-e@lanl.gov">po-e@lanl.gov</a>.</p>
-</li>
-<li>
-<p>Unpacking and decompressing archives:</p>
+	<p>If you have any difficulty obtaining the databases, please contact Po-E Li <a href="mailto:po-e@lanl.gov">po-e@lanl.gov</a>.</p>
+	</li>
+	<li>
+	<p>Unpacking and decompressing archives:</p>
 
-<pre><code>$ tar -zxvf GOTTCHA_lookup.tar.gz
-$ tar -zxvf GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz
-</code></pre>
-</li>
-<li>
-<p>Running gottcha.pl: </p>
+	<pre><code>$ tar -zxvf GOTTCHA_lookup.tar.gz
+	$ tar -zxvf GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz
+	</code></pre>
+	</li>
+	<li>
+	<p>Running gottcha.pl: </p>
 
-<pre><code>$ bin/gottcha.pl             \
-     --threads 8             \
-     --outdir ./             \
-     --input test/test.fastq \
-     --database database/GOTTCHA_BACTERIA_c3514_k24_u24.species
-</code></pre>
-</li>
-<li><p>Enjoying the result at './test.gottcha.tsv'.</p></li>
+	<pre><code>$ bin/gottcha.pl             \
+	     --threads 8             \
+		      --outdir ./             \
+			       --input test/test.fastq \
+				        --database database/GOTTCHA_BACTERIA_c3514_k24_u24.species
+						</code></pre>
+	</li>
+	<li><p>Enjoying the result at './test.gottcha.tsv'.</p></li>
 </ol>
-
+<h3>
+	
 <hr>
 
-<h3>
-<a id="detail-instructions" class="anchor" href="#detail-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Detail about GOTTCHA?</h2>
-
-<p>The detail of steps in the above section will be descrbed in this section. Note that all 
-instructions in this document use pre-computed databases downloaded from our SFTP site.</p>
-
-<p>If you are looking for instructions to build a CUSTOM database and/or running GOTTCHA
-step-by-step, please read README_FULL.md.</p>
-
-<h3>
-<a id="interpreting-results" class="anchor" href="#interpreting-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interpreting Results</h3>
+<a id="interpreting-results" class="anchor" href="#interpreting-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the Output?</h3>
 
 <p>GOTTCHA reports profiling results in a neat summary table (*.gottcha.tsv) by default.
 The tsv file will list the organism(s) at all taxonomic levels from STRAIN to PHYLUM,
@@ -194,7 +205,7 @@ relative abundance of each organism or taxonomic name in the sample.</p>
 </table>
 
 <h3>
-<a id="visulizing-results-using-krona" class="anchor" href="#visulizing-results-using-krona" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visulizing Results using Krona</h3>
+<a id="visulization" class="anchor" href="#visulization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can I Visualize the result?</h3>
 
 <p><a href="http://sourceforge.net/p/krona/home/krona/">Krona</a> is an interactive browser that allows 
 the exploration of hierarchical data with pie charts. Assuming you have Krona installed properly,
@@ -211,20 +222,10 @@ You will find .lineage.tsv file when you run gottcha.pl in "all" output mode.</p
 <h3>
 <a id="citation" class="anchor" href="#citation" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to cite GOTTCHA?</h3>
 
+<p>Please cite GOTTCHA at:</p>
 <p>Tracey Allen K. Freitas, Po-E Li, Matthew B. Scholz and Patrick S. G. Chain (2015) <strong>Accurate read-based metagenome characterization using a hierarchical suite of unique signatures,</strong> Nucleic Acids Research (DOI: 10.1093/nar/gkv180)</p>
 
-<hr>
-
-<h3>
-<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discussion / Bug Report</h3>
-
-<p>We have created a mailing list for GOTTCHA users. If you would like to recieve notifications about the updates and join the discussion, please join the mailing list by becoming the member of GOTTCHA-users groups.</p>
-<p><a href="https://groups.google.com/d/forum/gottcha-users">GOTTCHA user's google group</a></p>
-<p>Despite all these efforts, there are potential bugs and issues. Please help us to make it better by reporting them to GitHub issue tracker.</p>
-<p><a href="https://github.com/LANL-Bioinformatics/GOTTCHA/issues">GOTTCHA issue tracker</a></p>
-<p>Any other questions? You are welcome to contact Po-E (Paul) Li via po-e[at]lanl.gov.</p>
-
-<hr>
+<p></p>
 
       </section>
     </div>

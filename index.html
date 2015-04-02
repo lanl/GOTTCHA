@@ -34,10 +34,10 @@
 <section id="main_content" class="inner">
         
 <h3>
-<a id="genomic-origin-through-taxonomic-challenge-gottcha" class="anchor" href="#genomic-origin-through-taxonomic-challenge-gottcha" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is GOTTCHA
+<a id="genomic-origin-through-taxonomic-challenge-gottcha" class="anchor" href="#genomic-origin-through-taxonomic-challenge-gottcha" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is GOTTCHA?
 </h3>
 <p>GOTTCHA (<u>G</u>enomic <u>O</u>rigin <u>T</u>hrough <u>T</u>axonomic <u>CHA</u>llenge) is an application of a novel, gene-independent and signature-based metagenomic
-taxonomic profiling method with significantly smaller false discovery rates (FDR) that is 
+taxonomic profiling method with significantly smaller false discovery rates (FDR) that is also 
 laptop deployable. Our algorithm was tested and validated on twenty synthetic and mock 
 datasets ranging in community composition and complexity, was applied successfully to data
 generated from spiked environmental and clinical samples, and robustly demonstrates 
@@ -46,17 +46,17 @@ superior performance compared with other available tools.</p>
 <hr>
 
 <h3>
-<a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's New
+<a id="change-log" class="anchor" href="#change-log" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's new?
 </h3>
 
-<p>Some major changes has been made in the v1.0 release:
-<li>The number of classified reads reports on the ouput in READ_COUNT column.</li>
-<li>The number of split-trimmed reads that hit to plasmids reports in HIT_COUNT_PLASMID column.</li>
+<p>Some major changes have been made in the v1.0 release:
+<li>The number of classified reads is reported in the READ_COUNT column of the output.</li>
+<li>The number of split-trimmed reads that hit to plasmids is reported in the HIT_COUNT_PLASMID column of the output.</li>
 <li>GOTTCHA can now remove the plasmid hits using "--noPlasmidHit" option.</li>
 <div style="padding:0.8em; margin-top: 0.5em; background-color: #f9f8e6; border-color: rgba(231,228,157,.15); border-width: 5px; font-style: italic;">
-Note: The plasmid related results and the option need the new parsed database to work properly. For users who downloaded the databases before 30th March 2015, 
+Note: The plasmid-related results and the "--noPlasmidHit" option need the new parsed databases to work properly. For users who downloaded the databases before 30th March 2015, 
 we encourage you to download the new parsed database (*.parsedGOTTCHA.dmp) to replace the old one. GOTTCHA v1.0 still supports old databases but 
-plasmid relative results will show zero due to absence of the plasmid information. Please click <a href="https://github.com/LANL-Bioinformatics/GOTTCHA#obtaining-pre-computed-databases">here</a> for more detail.
+plasmid relative results will show zero due to absence of the plasmid information. Please click <a href="https://github.com/LANL-Bioinformatics/GOTTCHA#obtaining-pre-computed-databases">here</a> for more details.
 </div>
 
 </p>
@@ -64,9 +64,9 @@ plasmid relative results will show zero due to absence of the plasmid informatio
 <hr>
 
 <h3>
-<a id="system-requirement" class="anchor" href="#system-requirement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can my System Run GOTTCHA</h3>
+<a id="system-requirement" class="anchor" href="#system-requirement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can my system run GOTTCHA?</h3>
 
-<p>Linux (2.6 kernel or later) or Mac (OSX 10.6 Snow Leopard or later) operating system
+<p>Either Linux (2.6 kernel or later) or Mac OS (OSX 10.6 Snow Leopard or later)
 with a minimum of 8 GB of RAM is recommended. Perl v5.8 or above is required. The C/C++
 compiling enviroment might be required for installing dependencies. Systems may vary.
 Please assure that your system has the essential software building packages (e.g. build-essential
@@ -79,14 +79,14 @@ Ubuntu 10.04 w/ Perl v5.10.1) and Macbook Pro laptops (MAC OSX 10.8 w/ XCODE v5.
 <hr>
 
 <h3>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to Install GOTTCHA</h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to install GOTTCHA?</h3>
 
-<p>The installation guide and the quick tutorial can be found in the the <a href="https://github.com/LANL-Bioinformatics/GOTTCHA">Github page</a>. More detail of each step is descripted in <a href="https://github.com/LANL-Bioinformatics/GOTTCHA/tree/master#detail-instructions">this section</a>.</p>
+<p>The installation guide and a quick tutorial can be found on the <a href="https://github.com/LANL-Bioinformatics/GOTTCHA">Github page</a>. A more detailed description can be found in <a href="https://github.com/LANL-Bioinformatics/GOTTCHA/tree/master#detail-instructions">this section</a>.</p>
 
 <hr>
 
 <h3>
-<a id="discussion" class="anchor" href="#discussion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discussion / Bug Report</h3>
+<a id="discussion" class="anchor" href="#discussion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discussions / Bugs Reporting</h3>
 
 <p>We have created a mailing list for GOTTCHA users. If you would like to recieve notifications about the updates and join the discussion, please join the mailing list by becoming the member of GOTTCHA-users groups.</p>
 <p><a href="https://groups.google.com/d/forum/gottcha-users">GOTTCHA user's google group</a></p>
@@ -97,15 +97,15 @@ Ubuntu 10.04 w/ Perl v5.10.1) and Macbook Pro laptops (MAC OSX 10.8 w/ XCODE v5.
 <hr>
 
 <h3>
-	<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>I Can't Wait! How to Run GOTTCHA?</h3>
+	<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to Run GOTTCHA? (The "I Can't Wait!" instructions)</h3>
 
-<p>This is an quick example of profiling a "test.fastq" file using GOTTCHA with a species-level
+<p>This is a quick example of profiling a "test.fastq" file using GOTTCHA with a species-level
 pre-computed bacterial database. The testing FASTQ file comes along with the GOTTCHA package
 in the "test" directory. More details are stated in the INSTRUCTION section.</p>
 
 <ol>
 	<li>
-	<p>Obtaining GOTTCHA package:</p>
+	<p>Obtaining the GOTTCHA package:</p>
 
 	<pre><code>$ git clone https://github.com/LANL-Bioinformatics/GOTTCHA.git gottcha
 	</code></pre>
@@ -117,8 +117,8 @@ in the "test" directory. More details are stated in the INSTRUCTION section.</p>
 $ ./INSTALL.sh</code></pre>
 	</li>
 	<li>
-	<p>Downloading lookup table and species-level database from our SFTP server.
-	Use '9001gottcha' as the password when the request prompts:</p>
+	<p>Downloading the lookup table and the species-level database from our SFTP server.
+	Use '9001gottcha' as the password when prompted:</p>
 
 	<pre><code>$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_lookup.tar.gz ./
 $ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz ./</code></pre>
@@ -126,7 +126,7 @@ $ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_BACTERIA_c3514_k2
 	<p>If you have any difficulty obtaining the databases, please contact us.</p>
 	</li>
 	<li>
-	<p>Unpacking and decompressing archives:</p>
+	<p>Unpacking and decompressing the previous downloads:</p>
 
 	<pre><code>$ tar -zxvf GOTTCHA_lookup.tar.gz
 $ tar -zxvf GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz</code></pre>
@@ -146,7 +146,7 @@ $ tar -zxvf GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz</code></pre>
 	
 <hr>
 
-<a id="interpreting-results" class="anchor" href="#interpreting-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the Output</h3>
+<a id="interpreting-results" class="anchor" href="#interpreting-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the output?</h3>
 
 <p>GOTTCHA reports profiling results in a neat summary table (*.gottcha.tsv) by default.
 The tsv file will list the organism(s) at all taxonomic levels from STRAIN to PHYLUM,
@@ -208,12 +208,12 @@ relative abundance of each organism or taxonomic name in the sample.</p>
 </table>
 
 <h3>
-<a id="visulization" class="anchor" href="#visulization" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to Visualize the Result</h3>
+<a id="visulization" class="anchor" href="#visulization" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to visualize the result?</h3>
 
 <p><a href="http://sourceforge.net/p/krona/home/krona/">Krona</a> is an interactive browser that allows 
 the exploration of hierarchical data with pie charts. Assuming you have Krona installed properly,
-we are going to create a Krona chart from a text file listing abundance and lineages. 
-You will find .lineage.tsv file when you run gottcha.pl in "all" output mode.</p>
+you are going to create a Krona chart from a text file listing abundance and lineages. 
+You must run GOTTCHA with the "--mode all" option; Use "<YOUR_PREFIX>.lineage.tsv" file found in the "<YOUR_PREFIX>_temp" directory to run krona:</p>
 
 <p>Use 'ktImportText' and save the chart to "test.krona.html":</p>
 

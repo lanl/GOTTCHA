@@ -127,11 +127,10 @@ in the "test" directory. More details are stated in the INSTRUCTION section.</p>
 $ ./INSTALL.sh</code></pre>
 	</li>
 	<li>
-	<p>Downloading the lookup table and the species-level database from our SFTP server.
-	Use '9001gottcha' as the password when prompted:</p>
+	<p>Downloading lookup table and species-level database from our web server:</p>
 
-	<pre><code>$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_lookup.tar.gz ./
-$ sftp -o "Port 33001" gottcha@img-gp.lanl.gov:gottcha/GOTTCHA_BACTERIA_c3514_k24_u24.species.tar.gz ./</code></pre>
+	<pre><code>$ wget https://greenhouse.lanl.gov/gottcha/GOTTCHA_lookup.tar.gz
+$ wget https://greenhouse.lanl.gov/gottcha/GOTTCHA_BACTERIA_c3514_k24_u24_xHUMAN3x.species.tar.gz</code></pre>
 
 	<p>If you have any difficulty obtaining the databases, please contact us.</p>
 	</li>

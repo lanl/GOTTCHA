@@ -257,6 +257,12 @@ learning techniques, and Shihai Feng for the generation of synthetic datasets.
 This project is funded by U.S. Defense Threat Reduction Agency [R-00059-12-0 and R-00332-13-0 to P.S.G.C.].
 
 -------------------------------------------------------------------
+## Copyright and license
+
+Los Alamos National Security, LLC (LANS) owns the copyright to GOTTCHA, which it identifies internally as LA-CC-14-039.  The license is GPLv3.  See [LICENSE](https://github.com/losalamos/GOTTCHA/blob/master/LICENSE) for the full text.
+
+
+-------------------------------------------------------------------
 ## CHANGE LOG
 Version 1.0b:
 > Bug fix for database inconsistency.
